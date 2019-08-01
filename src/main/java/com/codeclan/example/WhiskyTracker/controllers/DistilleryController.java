@@ -4,6 +4,7 @@ import com.codeclan.example.WhiskyTracker.models.Distillery;
 import com.codeclan.example.WhiskyTracker.repositories.DistilleryRepository.DistilleryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,12 +23,12 @@ public class DistilleryController {
     }
 
     @GetMapping(value = "/region/{region}")
-    public List<Distillery> findAllDistilleryByRegion(String region){
+    public List<Distillery> findAllDistilleryByRegion(@PathVariable String region){
         return distilleryRepository.findAllDistilleryByRegion(region);
     }
 
     @GetMapping(value = "/age/{age}")
-    public List<Distillery> findWhiskiesAgeTwelve(int age){
+    public List<Distillery> findWhiskiesAgeTwelve(@PathVariable int age){
         return distilleryRepository.findWhiskiesAgeTwelve(age);
     }
 

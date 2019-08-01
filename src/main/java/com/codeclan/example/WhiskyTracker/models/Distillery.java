@@ -20,7 +20,6 @@ public class Distillery {
     @Column(name = "region")
     private String region;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "distillery", fetch = FetchType.LAZY)
     private List<Whisky> whiskies;
 
